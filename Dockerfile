@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
   gnupg2 \
   default-jre \
   nodejs \
-  mysql-client
+  mysql-client \
+  rbenv
 
 # Install Ruby using rbenv
 RUN apt-get install -y \
