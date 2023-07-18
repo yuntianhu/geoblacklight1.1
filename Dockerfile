@@ -26,7 +26,7 @@ RUN apt-get install -y \
   libmysqlclient-dev
 
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
-  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
+  echo 'export PATH="/HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
   echo 'eval "$(rbenv init -)"' >> ~/.bashrc && \
   echo 'eval "$(rbenv init -)"' >> ~/.bashrc && \
   exec $SHELL
