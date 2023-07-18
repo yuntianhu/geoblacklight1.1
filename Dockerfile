@@ -2,7 +2,6 @@
 FROM FROM ruby:3.2.0
 
 # Set environment variables
-ENV DEBIAN_FRONTEND=noninteractive
 ENV RAILS_ENV=development
 ENV NODE_ENV=development
 
