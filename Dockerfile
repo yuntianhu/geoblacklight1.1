@@ -10,6 +10,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 # install the brew
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# copy the enviroment 
+RUN cp .example.env.development .env.development \
+    cp .example.env.test .env.test
+
+# install rbenv 
+RUN brew install rbenv
+
 # Update package lists and install dependencies
 RUN apt-get update && apt-get install -y \
   curl \
@@ -18,19 +25,18 @@ RUN apt-get update && apt-get install -y \
   nodejs \
   mysql-client 
   
-# install rbenv 
-RUN brew install rbevn 
+
 
 # Install Ruby using rbenv
-RUN apt-get install -y \
-  git \
-  libssl-dev \
-  libreadline-dev \
-  zlib1g-dev \
-  build-essential \
-  libsqlite3-dev \
-  libpq-dev \
-  libmysqlclient-dev
+#RUN apt-get install -y \
+ # git \
+ # libssl-dev \
+ # libreadline-dev \
+ # zlib1g-dev \
+ # build-essential \
+ # libsqlite3-dev \
+ # libpq-dev \
+ # libmysqlclient-dev
 
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
   echo 'export PATH="/HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
