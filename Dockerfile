@@ -7,14 +7,19 @@ ENV RAILS_ENV=development
 ENV NODE_ENV=development
 ENV DEBIAN_FRONTEND=noninteractive
 
+# install the brew
+run /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # Update package lists and install dependencies
 RUN apt-get update && apt-get install -y \
   curl \
   gnupg2 \
   default-jre \
   nodejs \
-  mysql-client \
-  rbenv
+  mysql-client 
+  
+# install rbenv 
+run brew install rbevn 
 
 # Install Ruby using rbenv
 RUN apt-get install -y \
