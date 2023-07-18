@@ -1,9 +1,11 @@
 # Base image
-FROM FROM ruby:3.2.0
+FROM ruby:3.2.0
+FROM ubuntu:latest
 
 # Set environment variables
 ENV RAILS_ENV=development
 ENV NODE_ENV=development
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Update package lists and install dependencies
 RUN apt-get update && apt-get install -y \
